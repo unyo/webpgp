@@ -1,29 +1,20 @@
 <script src="openpgp.js"></script>
-<form id="encrypt">
-    <div class="row">
-        <div class="form-group col-md-6">
-            <label>Public Key</label>
-            <textarea placeholder="Enter PGP private key here..." id="public-key" class="form-control"></textarea>
-        </div>
-        <div class="form-group col-md-6">
-            <label>Message</label>
-            <textarea id="message" class="form-control">(address goes here)</textarea>
-        </div>
-    </div>
-    <div class="form-group">
-        <input type="submit" class="btn btn-success btn-lg btn-block" id="encrypt" value="Encrypt" />
-        <input type="submit" class="btn btn-success btn-lg btn-block" id="encrypt" value="Decrypt" />
-        
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4 text-center">
-             <label>Private Key</label>
-            <textarea placeholder="Enter PGP private key here..." id="public-key" class="form-control"></textarea>
-        </div>
-        <div class="form-group col-md-8">
-            <label>Result</label>
-            <textarea id="result" class="form-control"></textarea>
-        </div>
+<h1>WebPGP - Online PGP Service</h1>
+<p>This service is designed to help protect anonymous users with published public PGP keys. If an adversary steals your computer and your private key, and it is not password protected, they may be able to use that to link you to your published PGP key and your anonymous account. All data is stored on the server with a symmetric key, and is decrypted in the brower.</p>
+<form>
+    <label>Private Key</label>
+    <textarea id="private-key"></textarea>
+    <label>Private Key Password</label>
+    <input id="password" type="password" />
+    <label>Public Key</label>
+    <textarea id="public-key"></textarea>
+    <label>Message</label>
+    <textarea id="message"></textarea>
+    <button id="encrypt">Encrypt</button>
+    <button id="decrypt">Decrypt</button>
+    <label>Result</label>
+    <textarea id="result" ></textarea>
+    <button id="save">Save</button>
 </form>    
 <a href="/hash">SHA256 hash of this page</a><br />
 <a href="/openpgp">SHA256 hash of openpgp.js</a><br />
@@ -52,3 +43,8 @@
         // allow "burn data" option (set random new variables of at least the same length as the current data, and then delete from database)
     });
 </script>
+<style>
+    label, textarea {
+        display: block;
+    }
+</style>
